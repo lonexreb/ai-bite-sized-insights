@@ -112,6 +112,71 @@ const Tutorials = () => {
                 <TabsTrigger value="guide">Guides</TabsTrigger>
                 <TabsTrigger value="course">Courses</TabsTrigger>
               </TabsList>
+              
+              {/* Move TabsContent inside the Tabs component */}
+              <TabsContent value="all" className="mt-0">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {getFilteredByType("all").map((tutorial, i) => (
+                    <ContentCard
+                      key={i}
+                      title={tutorial.title}
+                      description={tutorial.description}
+                      image={tutorial.image}
+                      category={tutorial.category}
+                      difficulty={tutorial.difficulty}
+                      link={tutorial.link}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="tutorial" className="mt-0">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {getFilteredByType("tutorial").map((tutorial, i) => (
+                    <ContentCard
+                      key={i}
+                      title={tutorial.title}
+                      description={tutorial.description}
+                      image={tutorial.image}
+                      category={tutorial.category}
+                      difficulty={tutorial.difficulty}
+                      link={tutorial.link}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="guide" className="mt-0">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {getFilteredByType("guide").map((tutorial, i) => (
+                    <ContentCard
+                      key={i}
+                      title={tutorial.title}
+                      description={tutorial.description}
+                      image={tutorial.image}
+                      category={tutorial.category}
+                      difficulty={tutorial.difficulty}
+                      link={tutorial.link}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="course" className="mt-0">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {getFilteredByType("course").map((tutorial, i) => (
+                    <ContentCard
+                      key={i}
+                      title={tutorial.title}
+                      description={tutorial.description}
+                      image={tutorial.image}
+                      category={tutorial.category}
+                      difficulty={tutorial.difficulty}
+                      link={tutorial.link}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
             </Tabs>
             
             <div className="flex items-center gap-2">
@@ -129,70 +194,6 @@ const Tutorials = () => {
               </Select>
             </div>
           </div>
-
-          <TabsContent value="all" className="mt-0">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {getFilteredByType("all").map((tutorial, i) => (
-                <ContentCard
-                  key={i}
-                  title={tutorial.title}
-                  description={tutorial.description}
-                  image={tutorial.image}
-                  category={tutorial.category}
-                  difficulty={tutorial.difficulty}
-                  link={tutorial.link}
-                />
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="tutorial" className="mt-0">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {getFilteredByType("tutorial").map((tutorial, i) => (
-                <ContentCard
-                  key={i}
-                  title={tutorial.title}
-                  description={tutorial.description}
-                  image={tutorial.image}
-                  category={tutorial.category}
-                  difficulty={tutorial.difficulty}
-                  link={tutorial.link}
-                />
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="guide" className="mt-0">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {getFilteredByType("guide").map((tutorial, i) => (
-                <ContentCard
-                  key={i}
-                  title={tutorial.title}
-                  description={tutorial.description}
-                  image={tutorial.image}
-                  category={tutorial.category}
-                  difficulty={tutorial.difficulty}
-                  link={tutorial.link}
-                />
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="course" className="mt-0">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {getFilteredByType("course").map((tutorial, i) => (
-                <ContentCard
-                  key={i}
-                  title={tutorial.title}
-                  description={tutorial.description}
-                  image={tutorial.image}
-                  category={tutorial.category}
-                  difficulty={tutorial.difficulty}
-                  link={tutorial.link}
-                />
-              ))}
-            </div>
-          </TabsContent>
         </div>
         
         <div className="py-12 bg-gray-50">

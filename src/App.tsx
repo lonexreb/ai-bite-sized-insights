@@ -10,6 +10,7 @@ import Newsletter from "./pages/Newsletter";
 import Tutorials from "./pages/Tutorials";
 import Community from "./pages/Community";
 import Pricing from "./pages/Pricing";
+import SignUp from "./pages/SignUp";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/tutorials" element={<Tutorials />} />
           <Route path="/community" element={<Community />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/signup" element={<SignUp />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

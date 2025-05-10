@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function CTASection() {
   return (
-    <div className="py-16 bg-brand-light-purple">
+    <div className="py-16 bg-brand-light-skyblue">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight mb-4">
@@ -15,10 +15,10 @@ export function CTASection() {
             Start your journey today!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="bg-brand-skyblue hover:bg-brand-dark-skyblue">
               <Link to="/signup">Get Started</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="border-brand-skyblue text-brand-skyblue hover:text-brand-dark-skyblue hover:border-brand-dark-skyblue">
               <Link to="/tutorials">Browse Content</Link>
             </Button>
           </div>

@@ -5,25 +5,25 @@ import { Brain, BookOpen, Users, Layers } from "lucide-react";
 export function FeatureSection() {
   const features = [
     {
-      icon: <Brain className="h-8 w-8 text-brand-purple" />,
+      icon: <Brain className="h-8 w-8 text-brand-skyblue" />,
       title: "Weekly AI Breakdowns",
       description:
         "Digestible explanations of complex AI research papers and cutting-edge advancements delivered straight to your inbox.",
     },
     {
-      icon: <BookOpen className="h-8 w-8 text-brand-purple" />,
+      icon: <BookOpen className="h-8 w-8 text-brand-skyblue" />,
       title: "Guided Tutorials",
       description:
         "Step-by-step tutorials that break down complex implementations with detailed code explanations.",
     },
     {
-      icon: <Users className="h-8 w-8 text-brand-purple" />,
+      icon: <Users className="h-8 w-8 text-brand-skyblue" />,
       title: "Community Learning",
       description:
         "Join study sessions with like-minded individuals and collaborate on projects with peers around the world.",
     },
     {
-      icon: <Layers className="h-8 w-8 text-brand-purple" />,
+      icon: <Layers className="h-8 w-8 text-brand-skyblue" />,
       title: "Mathematical Intuition",
       description:
         "Clear explanations of the mathematical foundations behind modern AI techniques with a focus on intuitive understanding.",
@@ -47,7 +47,7 @@ export function FeatureSection() {
           {features.map((feature, i) => (
             <Card key={i} className="border-none shadow-sm hover:shadow-md transition-shadow">
               <CardContent className="pt-6">
-                <div className="rounded-full bg-brand-light-purple p-3 w-fit mb-5">
+                <div className="rounded-full bg-brand-light-skyblue p-3 w-fit mb-5">
                   {feature.icon}
                 </div>
                 <h3 className="font-semibold text-xl mb-2">{feature.title}</h3>

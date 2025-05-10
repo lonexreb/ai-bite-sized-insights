@@ -25,7 +25,7 @@ export function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center gap-2">
-            <div className="rounded-full bg-brand-purple p-1.5">
+            <div className="rounded-full bg-brand-skyblue p-1.5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -49,12 +49,12 @@ export function Navbar() {
             <Link
               key={link.name}
               to={link.href}
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-sm font-medium transition-colors hover:text-brand-skyblue"
             >
               {link.name}
             </Link>
           ))}
-          <Button asChild variant="default" size="sm">
+          <Button asChild variant="default" size="sm" className="bg-brand-skyblue hover:bg-brand-dark-skyblue">
             <Link to="/signup">Get Started</Link>
           </Button>
         </div>
@@ -79,7 +79,7 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Button asChild className="mt-4">
+              <Button asChild className="mt-4 bg-brand-skyblue hover:bg-brand-dark-skyblue">
                 <Link to="/signup" onClick={() => setIsOpen(false)}>
                   Get Started
                 </Link>

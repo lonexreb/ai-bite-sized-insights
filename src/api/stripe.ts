@@ -1,7 +1,15 @@
 import Stripe from 'stripe';
+import dotenv from 'dotenv';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-04-30.basil',
+// Load environment variables
+dotenv.config();
+
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('STRIPE_SECRET_KEY is not set in environment variables');
+}
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2023-10-16',
 });
 
 // Define your Stripe product IDs
@@ -69,16 +77,9 @@ export async function handleWebhook(req: any, res: any) {
   res.json({ received: true });
 }
 
-export async function createCheckoutSession(req: any, res: any) {
+export const createCheckoutSession = async (priceId: string) => {
   try {
-    const { planId, interval, successUrl, cancelUrl, customerId } = req.body;
-
-    // Get the correct price ID based on plan and interval
-    const priceId = STRIPE_PRODUCTS[planId as keyof typeof STRIPE_PRODUCTS][interval];
-
-    // Create a checkout session
     const session = await stripe.checkout.sessions.create({
-      customer: customerId, // If you have a customer ID
       payment_method_types: ['card'],
       line_items: [
         {
@@ -87,23 +88,16 @@ export async function createCheckoutSession(req: any, res: any) {
         },
       ],
       mode: 'subscription',
-      success_url: successUrl,
-      cancel_url: cancelUrl,
-      metadata: {
-        planId,
-        interval,
-      },
-      subscription_data: {
-        trial_period_days: 14, // Add 14-day trial
-      },
+      success_url: `${process.env.FRONTEND_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.FRONTEND_URL}/cancel`,
     });
 
-    res.json({ sessionId: session.id });
+    return session;
   } catch (error) {
     console.error('Error creating checkout session:', error);
-    res.status(500).json({ error: 'Failed to create checkout session' });
+    throw error;
   }
-}
+};
 
 export async function createCustomerPortalSession(req: any, res: any) {
   try {

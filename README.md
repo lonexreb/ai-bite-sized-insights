@@ -1,73 +1,145 @@
-# Welcome to your Lovable project
+# AI Bite-Sized Insights - Subscription System
 
-## Project info
+A modern subscription management system built with React, TypeScript, and Stripe integration.
 
-**URL**: https://lovable.dev/projects/9f04c714-5469-4393-ba24-eba46dbe1e4a
+## Features
 
-## How can I edit this code?
+### 1. Subscription Plans
+- Three-tier pricing structure:
+  - Basic Plan ($9.99/month)
+  - Pro Plan ($19.99/month)
+  - Enterprise Plan ($49.99/month)
+- 20% discount for yearly subscriptions
+- 14-day free trial for all plans
+- Clear feature comparison between plans
 
-There are several ways of editing your application.
+### 2. User Interface Components
+- **SubscriptionPlans**: Displays available plans with pricing and features
+- **SubscriptionManagement**: Manages active subscriptions
+- **Account Page**: Central hub for subscription and profile management
+- **Success/Cancel Pages**: Handles subscription flow outcomes
 
-**Use Lovable**
+### 3. Payment Integration
+- Secure Stripe Checkout integration
+- Support for multiple payment methods
+- Automatic handling of subscription renewals
+- Trial period management
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9f04c714-5469-4393-ba24-eba46dbe1e4a) and start prompting.
+### 4. Customer Portal
+- Self-service subscription management
+- Plan upgrades and downgrades
+- Payment method updates
+- Billing history access
+- Subscription cancellation
 
-Changes made via Lovable will be committed automatically to this repo.
+### 5. Backend Features
+- Webhook handling for subscription events
+- Subscription status tracking
+- Customer data management
+- Secure API endpoints
 
-**Use your preferred IDE**
+## Project Structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── SubscriptionPlans.tsx      # Plan display and selection
+│   └── SubscriptionManagement.tsx # Active subscription management
+├── pages/
+│   ├── Account.tsx               # User account dashboard
+│   ├── SubscriptionSuccess.tsx   # Success page
+│   └── SubscriptionCancel.tsx    # Cancel page
+├── services/
+│   └── paymentService.ts         # Stripe integration
+└── api/
+    └── stripe.ts                 # Backend Stripe handlers
 ```
 
-**Edit a file directly in GitHub**
+## Setup Instructions
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Environment Variables**
+   ```
+   VITE_STRIPE_PUBLISHABLE_KEY=pk_test_your_key
+   STRIPE_SECRET_KEY=sk_test_your_key
+   STRIPE_WEBHOOK_SECRET=whsec_your_secret
+   FRONTEND_URL=http://localhost:8080
+   ```
 
-**Use GitHub Codespaces**
+2. **Installation**
+   ```bash
+   npm install
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. **Start Development Servers**
+   ```bash
+   # Terminal 1 - Backend
+   npm run server
 
-## What technologies are used for this project?
+   # Terminal 2 - Frontend
+   npm run dev
+   ```
 
-This project is built with:
+## Available Routes
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `/pricing` - View subscription plans
+- `/account` - Manage subscription and profile
+- `/subscription/success` - Subscription success page
+- `/subscription/cancel` - Subscription cancellation page
 
-## How can I deploy this project?
+## Subscription Flow
 
-Simply open [Lovable](https://lovable.dev/projects/9f04c714-5469-4393-ba24-eba46dbe1e4a) and click on Share -> Publish.
+1. User selects a plan at `/pricing`
+2. Completes checkout through Stripe
+3. Redirected to success/cancel page
+4. Can manage subscription at `/account`
 
-## Can I connect a custom domain to my Lovable project?
+## Technical Stack
 
-Yes, you can!
+- **Frontend**: React, TypeScript, TailwindCSS
+- **Backend**: Express.js, Node.js
+- **Payment**: Stripe
+- **State Management**: React Query
+- **Routing**: React Router
+- **UI Components**: Shadcn/UI
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Security Features
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Secure API endpoints
+- Webhook signature verification
+- Environment variable protection
+- CORS configuration
+- Type-safe API calls
+
+## Development Status
+
+✅ Completed:
+- Basic subscription flow
+- Plan display and selection
+- Stripe integration
+- Customer portal access
+- Webhook handling
+
+🚧 In Progress:
+- Subscription analytics
+- Usage tracking
+- Advanced billing features
+
+## Next Steps
+
+1. Implement subscription analytics
+2. Add usage tracking
+3. Enhance billing features
+4. Improve error handling
+5. Add automated testing
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+MIT License - See LICENSE file for details
